@@ -1,0 +1,12 @@
+
+
+
+
+body {
+    font-family: 'Indie Flower', cursive;
+    background: url(../images/train-station-bg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
