@@ -10,3 +10,9 @@ body {
     -o-background-size: cover;
     background-size: cover;
   }
+
+  /* #train-schedule-table th,
+    td {
+      display: inline-block;
+      width: 16.575%;
+    } */
