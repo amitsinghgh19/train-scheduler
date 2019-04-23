@@ -17,7 +17,8 @@ function updateClock() {
     console.log("Current Time in seconds:" + moment(currentTimeSec).format("ss"));
     if(moment(currentTimeSec).format("ss")==00)
     {
-      location.reload();
+      // When current seconds=00
+        location.reload();
     }
   };
   
@@ -117,13 +118,14 @@ function updateClock() {
     
     // Create the new row and add each train's data into the table
     var newRow = $("<tr>").append(
-      $("<td>").text(trainName),
-      $("<td>").text(destination),
+      $("<td contenteditable='true' id='trnName'>").text(trainName),
+      $("<td contenteditable='true' id='trnDest'>").text(destination),
       //$("<td>").text(firstTrainTime),
-      $("<td>").text(frequency),
+      $("<td contenteditable='true' id='trnFreq'>").text(frequency),
       $("<td>").text(nextTrainTime),
       $("<td>").text(timeMinutesTillNxtTrain),
-      $("<td><button class='btn btn-default btn-primary delete-train'key='" + childSnapshot.key + "'  id='delete-train'>X</button></td>")
+      $("<td><button class='btn btn-default btn-primary delete-train'keyD='" + childSnapshot.key + "'  id='delete-train'>X</button></td>"),
+      //$("<td><button class='btn btn-default btn-primary update-train'keyU='" + childSnapshot.key + "'  id='update-train'>UPDATE</button></td>")
     );
 
     // 5. Append the new row to the table
@@ -131,11 +133,17 @@ function updateClock() {
    
     //Delete rows
     $(".delete-train").on("click", function (event) {
-      keyref = $(this).attr("key");
+      keyref = $(this).attr("keyD");
       database.ref().child(keyref).remove();
       window.location.reload();
     });
     
+      // //Update rows
+      // $(document.body).on("click", ".update-train", function() {
+      //   trainName = $("#trnName").text(); // capture updated train name
+      //   database.ref().push(trainName);
+      // });
+
   // If any errors are experienced, log them to console.
 }, function(errorObject) {
   console.log("The read failed: " + errorObject.code);
