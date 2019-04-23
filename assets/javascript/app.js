@@ -8,7 +8,17 @@ function updateClock() {
   var c = $("<h2>");
   var c2 = c.append(clock);
   $("#clock").html(c2);
-  
+    
+    //reload the whole page every 60 seconds
+    //setTimeout(function () { location.reload(1); }, 60000);
+    //or
+    // Get current time in seconds
+    var currentTimeSec = moment();
+    console.log("Current Time in seconds:" + moment(currentTimeSec).format("ss"));
+    if(moment(currentTimeSec).format("ss")==00)
+    {
+      location.reload();
+    }
   };
   
   setInterval(updateClock, 1000);
@@ -82,27 +92,27 @@ function updateClock() {
     console.log(frequency);
 
     // First Train Time (pushed back 1 year to make sure it comes before current time)
-	var firstTrainTimeConverted = moment(firstTrainTime, "hh:mm A").subtract(1, "years");
-	console.log("First Train Time Converted:" +firstTrainTimeConverted);
+	  var firstTrainTimeConverted = moment(firstTrainTime, "hh:mm A").subtract(1, "years");
+	  console.log("First Train Time Converted:" +firstTrainTimeConverted);
 
-	// Current time
-	var currentTime = moment();
-	console.log("Current Time:" + moment(currentTime).format("HH:mm"));
+    // Current time
+    var currentTime = moment();
+    console.log("Current Time:" + moment(currentTime).format("HH:mm"));
 
-	// Difference between times
-	var differenceBtwTime = moment().diff(moment(firstTrainTimeConverted), "minutes");
-	console.log("Difference in time: " + differenceBtwTime);
+    // Difference between times
+    var differenceBtwTime = moment().diff(moment(firstTrainTimeConverted), "minutes");
+    console.log("Difference in time: " + differenceBtwTime);
 
-	// Time apart (remainder)
-	var timeRemainder = differenceBtwTime % frequency;
-	console.log(timeRemainder);
+    // Time apart (remainder)
+    var timeRemainder = differenceBtwTime % frequency;
+    console.log(timeRemainder);
 
-	// Mins left until next train
-	var timeMinutesTillNxtTrain = frequency - timeRemainder;
-	console.log("Minutes remaning until next train: " + timeMinutesTillNxtTrain);
+    // Mins left until next train
+    var timeMinutesTillNxtTrain = frequency - timeRemainder;
+    console.log("Minutes remaning until next train: " + timeMinutesTillNxtTrain);
 
-	// Next train
-	var nextTrainTime = moment().add(timeMinutesTillNxtTrain, "minutes").format("hh:mm A");
+    // Next train
+    var nextTrainTime = moment().add(timeMinutesTillNxtTrain, "minutes").format("hh:mm A");
     console.log("Next train arrival time: " + nextTrainTime);
     
     // Create the new row and add each train's data into the table
@@ -118,9 +128,6 @@ function updateClock() {
 
     // 5. Append the new row to the table
     $("#train-schedule-table > tbody").append(newRow);
-    
-    //reload the whole page every 60 seconds
-    setTimeout(function () { location.reload(1); }, 60000);
    
     //Delete rows
     $(".delete-train").on("click", function (event) {
@@ -128,7 +135,7 @@ function updateClock() {
       database.ref().child(keyref).remove();
       window.location.reload();
     });
-
+    
   // If any errors are experienced, log them to console.
 }, function(errorObject) {
   console.log("The read failed: " + errorObject.code);
