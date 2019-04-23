@@ -1,5 +1,18 @@
 //alert("test");
 // Steps to complete:
+//Clock for HTML Page
+
+function updateClock() {
+
+  var clock = moment().format("h:mm:ss a");
+  var c = $("<h2>");
+  var c2 = c.append(clock);
+  $("#clock").html(c2);
+  
+  };
+  
+  setInterval(updateClock, 1000);
+
 
    // 1. Initialize Firebase
    var config = {
@@ -99,9 +112,25 @@
       //$("<td>").text(firstTrainTime),
       $("<td>").text(frequency),
       $("<td>").text(nextTrainTime),
-      $("<td>").text(timeMinutesTillNxtTrain)
+      $("<td>").text(timeMinutesTillNxtTrain),
+      $("<td><button class='btn btn-default btn-primary delete-train'key='" + childSnapshot.key + "'  id='delete-train'>X</button></td>")
     );
 
     // 5. Append the new row to the table
     $("#train-schedule-table > tbody").append(newRow);
-  });
+    
+    //reload the whole page every 60 seconds
+    setTimeout(function () { location.reload(1); }, 60000);
+   
+    //Delete rows
+    $(".delete-train").on("click", function (event) {
+      keyref = $(this).attr("key");
+      database.ref().child(keyref).remove();
+      window.location.reload();
+    });
+
+  // If any errors are experienced, log them to console.
+}, function(errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});
+  

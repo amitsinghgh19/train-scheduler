@@ -18,87 +18,76 @@
 
 </head>
 <body>
-        <!-- <header> -->
-        <!-- Start Nav -->
-        <nav class="navbar-center navbar-expand-lg navbar-dark .bg-transparent text-center" style="opacity: 0.9;" >
-                <h1 class="navbar-text py-2 font-weight-bold my-3" style="height: 20%; width: 47%; background-color: brown;color: black;">
-                        <img src="assets/images/bullet-train-logo.png" alt="bt.logo" style="height: 20%; width: 25%;">
-                        Train Schedules
-                </h1>    
-        </nav>
-        <!-- End Nav -->
-        <!-- </header> -->
-
         <!-- Container -->
         <div class="container">
-                <div class="row">
-            
-                <div class="col-md-12">
-            
-                    <!-- Train Schedule Tabel-->
-                    <div class="card mb-4 border-primary" style="border-width: 2px; opacity: 0.9;">
-                    <div class="card-header bg-primary text-white font-weight-bold">Current Train Schedule</div>
-                    <div class="card-body">
-                        <table class="table table-sm table-hover" id='train-schedule-table'>
-                        <thead>
-                            <tr>
-                            <th scope="col">Train Name</th>
-                            <th scope="col">Destination</th>
-                            <th scope="col">Frequency (min)</th>
-                            <th scope="col">Next Arrival</th>
-                            <th scope="col">Minutes Away</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                        </table>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            
-                <div class="row">
-                <div class="col-md-12">
-                    <!-- Add Train  -->
-                    <div class="card mb-4 border-primary" style="border-width: 2px; opacity: 0.9;">
-                    <div class="card-header bg-primary text-white font-weight-bold">Add Train</div>
-                    <div class="card-body">
-            
-                        <!-- Entry Form -->
-                        <form>
-                        <div class="form-group font-weight-bold">
-                            <label for="train-name-input">Train Name</label>
-                            <input class="form-control" id="train-name-input" type="text">
-                        </div>
-                        <div class="form-group font-weight-bold">
-                            <label for="destination-input">Destination</label>
-                            <input class="form-control" id="destination-input" type="text">
-                        </div>
-                        <div class="form-group font-weight-bold">
-                            <label for="first-train-time-input">First Train Time (HH:mm - military time)</label>
-                            <input class="form-control" id="first-train-time-input" type="text">
-                        </div>
-                        <div class="form-group font-weight-bold">
-                            <label for="frequency-input">Frequency (min)</label>
-                            <input class="form-control" id="frequency-input" type="text">
-                        </div>
-                        <button class="btn btn-primary float-left font-weight-bold" id="add-train-btn">Submit</button>
-                        </form>
-            
-                    </div>
-                    </div>
-                </div>
-                </div>
-            
+
+        <header >
+                <img src="assets/images/amtrak-logo.png" alt="Amtrak logo">
+                <h1>Train Schedule</h1>
+                <div id="clock"></div>
+        </header>
+        <!-- assets/images/bullet-train-logo.png -->
+        <div class="row">
+    
+        <div class="col-md-12">
+    
+            <!-- Train Schedule Tabel-->
+            <div class="card mb-4 border-primary" style="border-width: 2px; opacity: 0.9;">
+            <div class="card-header bg-primary text-white font-weight-bold">Current Train Schedule</div>
+            <div class="card-body" id="tabelID">
+                <table class="table table-sm table-hover" id='train-schedule-table'>
+                <thead>
+                    <tr>
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency (min)</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                    <th scope="col">Detete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                </table>
             </div>
-
-
-
-
-
-
-
-
+            </div>
+        </div>
+        </div>
+    
+        <div class="row">
+        <div class="col-md-12">
+            <!-- Add Train  -->
+            <div class="card mb-4 border-primary" style="border-width: 2px; opacity: 0.9;">
+            <div class="card-header bg-primary text-white font-weight-bold">Add Train</div>
+            <div class="card-body">
+    
+                <!-- Entry Form -->
+                <form>
+                <div class="form-group font-weight-bold">
+                    <label for="train-name-input">Train Name</label>
+                    <input class="form-control" id="train-name-input" type="text">
+                </div>
+                <div class="form-group font-weight-bold">
+                    <label for="destination-input">Destination</label>
+                    <input class="form-control" id="destination-input" type="text">
+                </div>
+                <div class="form-group font-weight-bold">
+                    <label for="first-train-time-input">First Train Time (HH:mm - military time)</label>
+                    <input class="form-control" id="first-train-time-input" type="text">
+                </div>
+                <div class="form-group font-weight-bold">
+                    <label for="frequency-input">Frequency (min)</label>
+                    <input class="form-control" id="frequency-input" type="text">
+                </div>
+                <button class="btn btn-primary float-left font-weight-bold" id="add-train-btn">Submit</button>
+                </form>
+    
+            </div>
+            </div>
+        </div>
+        </div>
+    
+    </div>
 </body>
 
     <!-- Link in jQuery -->

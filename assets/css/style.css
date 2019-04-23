@@ -11,8 +11,21 @@ body {
     background-size: cover;
   }
 
-  /* #train-schedule-table th,
-    td {
-      display: inline-block;
-      width: 16.575%;
-    } */
+  header {
+    background-image: url("../images/train.png");
+    /* background-image: url("../images/bullet-train-logo.png"); */
+    background-repeat: no-repeat;
+    border: solid 3px steelblue;
+    background-color: #999;
+    /* height: 150px; */
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  img {
+    float: right;
+    display: relative;
+    margin: 10px 10px 0 -100px;
+    width: 100px;
+  }
+ 
