@@ -133,9 +133,15 @@ function updateClock() {
    
     //Delete rows
     $(".delete-train").on("click", function (event) {
-      keyref = $(this).attr("keyD");
-      database.ref().child(keyref).remove();
-      window.location.reload();
+      var r = confirm("Are you sure you want to Remove this train info from the database?");
+      if (r == true) {
+        keyref = $(this).attr("keyD");
+        database.ref().child(keyref).remove();
+        window.location.reload();
+      } else {
+      
+      }
+      
     });
     
       // //Update rows
