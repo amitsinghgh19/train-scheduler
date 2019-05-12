@@ -125,7 +125,7 @@ function updateClock() {
       $("<td>").text(nextTrainTime),
       $("<td>").text(timeMinutesTillNxtTrain),
       $("<td><button class='btn btn-default btn-primary delete-train'keyD='" + childSnapshot.key + "'  id='delete-train'>X</button></td>"),
-      //$("<td><button class='btn btn-default btn-primary update-train'keyU='" + childSnapshot.key + "'  id='update-train'>UPDATE</button></td>")
+      // $("<td><button class='btn btn-default btn-primary update-train'keyU='" + childSnapshot.key + "'  id='update-train'>UPDATE</button></td>")
     );
 
     // 5. Append the new row to the table
